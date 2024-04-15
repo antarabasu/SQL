@@ -1,0 +1,57 @@
+#1. Second Highest Salary
+
+Table: Employee
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| salary      | int  |
++-------------+------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains information about the salary of an employee.
+ 
+
+Write a solution to find the second highest salary from the Employee table. If there is no second highest salary, return null (return None in Pandas).
+
+Solution:
+
+select max(salary) SecondHighestSalary 
+from
+(
+    select salary
+from employee
+where salary <
+(
+select max(salary) as max_salary
+from employee
+    )
+    ) x
+    
+**************************************************************************************************************************************************************************
+
+#2. Nth Highest Salary
+
+Table: Employee
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| salary      | int  |
++-------------+------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains information about the salary of an employee.
+ 
+
+Write a solution to find the nth highest salary from the Employee table. If there is no nth highest salary, return null.
+
+-CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+-BEGIN
+-  RETURN (
+-      # Write your MySQL query statement below.
+-
+-  );
+-END
+
+**************************************************************************************************************************************************************************
