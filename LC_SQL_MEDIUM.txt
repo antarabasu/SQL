@@ -55,3 +55,24 @@ Write a solution to find the nth highest salary from the Employee table. If ther
 -END
 
 **************************************************************************************************************************************************************************
+
+# 3. Write a solution to find the rank of the scores. The ranking should be calculated according to the following rules:
+
+The scores should be ranked from the highest to the lowest.
+If there is a tie between two scores, both should have the same ranking.
+After a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no holes between ranks.
+Return the result table ordered by score in descending order.
+
+select score,
+dense_rank() over(order by score desc) as "rank"
+from scores;
+********************************************************************************************************************************************************************
+
+#4. Consecutive Numbers
+Find all numbers that appear at least three times consecutively.
+
+Return the result table in any order.
+
+select id, num, lead(num) over (order by id) next_num , rank() over(partition by num order by id) rnk
+from logs;
+********************************************************************************************************************************************************************
